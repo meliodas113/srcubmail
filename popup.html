@@ -4,21 +4,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Srcubmail - Chrome extension for scraping emails from web pages">
     <link rel="stylesheet" href="styles.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>Scrappy</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Srcubmail</title>
 </head>
 
 <body>
-    <h2>Srubmail</h2>
-    <ul id="email-list">
-        <li>Click on the button</li>
-    </ul>
-    <span id="message-text">Copied to Clipboard!</span>
-    <div class="center">
-        <button id="scrape-emails">Scrape</button>
-        <span id="clipboard-btn"><i class="fa fa-clipboard"></i></span>
-    </div>
-    <script src="./popup.js"></script>
+    <header class="popup-header">
+        <h1 class="popup-title">
+            <i class="fas fa-envelope-open-text"></i>
+            Srcubmail
+        </h1>
+        <p class="popup-subtitle">Email Scraper Extension</p>
+    </header>
+
+    <main class="popup-main">
+        <section class="email-section">
+            <h2 class="section-title">Scraped Emails</h2>
+            <div class="email-container">
+                <ul id="email-list" class="email-list">
+                    <li class="placeholder-message">
+                        <i class="fas fa-info-circle"></i>
+                        Click the Scrape button to extract emails from this page
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="actions-section">
+            <div class="button-group">
+                <button id="scrape-emails" class="btn btn-primary" type="button">
+                    <i class="fas fa-search"></i>
+                    <span class="btn-text">Scrape Emails</span>
+                </button>
+                
+                <button id="clipboard-btn" class="btn btn-secondary clipboard-btn" type="button" style="display: none;">
+                    <i class="fas fa-clipboard"></i>
+                    <span class="btn-text">Copy All</span>
+                </button>
+            </div>
+        </section>
+
+        <div id="message-text" class="message-container" style="display: none;"></div>
+    </main>
+
+    <footer class="popup-footer">
+        <p class="footer-text">Made with ❤️ for productivity</p>
+    </footer>
+
+    <script type="module" src="./dist/popup.js"></script>
 </body>
 </html>
